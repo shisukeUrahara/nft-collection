@@ -18,12 +18,11 @@ contract MyEpicNFT is ERC721URIStorage {
   string baseSvg = "<svg xmlns='http://www.w3.org/2000/svg' preserveAspectRatio='xMinYMin meet' viewBox='0 0 350 350'><style>.base { fill: white; font-family: serif; font-size: 24px; }</style><rect width='100%' height='100%' fill='black' /><text x='50%' y='50%' class='base' dominant-baseline='middle' text-anchor='middle'>";
 
 string[] firstWords = ["HAPPY", "SAD", "ANGRY", "REVENGEFUL", "ENVIOUS", "CALM","ENLIGHTENED","GREEDY","HUNGRY","GLUTTONOUS"];
-string[] secondWords = ["FIRE", "EARTH", "WATER", "AIR", "LIGHTNING", "LAVA", "METAL", "OBSIDIAN", "SAND", "CLOUD"];
-string[] thirdWords = ["PUNCH", "KICK", "CHOP", "EYEPOKE", "JAB", "SLAM","ARM-LOCK","TRIANGLE-CHOKE","HEADBUTT"];
+string[] secondWords = ["-FIRE", "-EARTH", "-WATER", "-AIR", "-LIGHTNING", "-LAVA", "-METAL", "-OBSIDIAN", "-SAND", "-CLOUD"];
+string[] thirdWords = ["-PUNCH", "-KICK", "-CHOP", "-EYEPOKE", "-JAB", "-SLAM","-ARM-LOCK","-TRIANGLE-CHOKE","-HEADBUTT"];
 
   // We need to pass the name of our NFTs token and it's symbol.
-  constructor() ERC721 ("SquareNFT", "SQUARE") {
-    console.log("This is my NFT contract. Woah!");
+  constructor() ERC721 ("EpicMovesNft", "EpicMovesNft") {
   }
 
    function pickRandomFirstWord(uint256 tokenId) public view returns (string memory) {
@@ -80,9 +79,9 @@ string[] thirdWords = ["PUNCH", "KICK", "CHOP", "EYEPOKE", "JAB", "SLAM","ARM-LO
         abi.encodePacked("data:application/json;base64,", json)
     );
 
-    console.log("\n--------------------");
-    console.log(finalTokenUri);
-    console.log("--------------------\n");
+    // console.log("\n--------------------");
+    // console.log(finalTokenUri);
+    // console.log("--------------------\n");
 
     _safeMint(msg.sender, newItemId);
     
@@ -90,6 +89,6 @@ string[] thirdWords = ["PUNCH", "KICK", "CHOP", "EYEPOKE", "JAB", "SLAM","ARM-LO
     _setTokenURI(newItemId, finalTokenUri);
   
     _tokenIds.increment();
-    console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
+    // console.log("An NFT w/ ID %s has been minted to %s", newItemId, msg.sender);
   }
 }
